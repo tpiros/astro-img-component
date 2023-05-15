@@ -1,15 +1,58 @@
 ---
+import sample from '~/assets/sample.jpg';
+import sample2 from '~/assets/sample2.jpg';
+import sample3 from '~/assets/sample3.jpg';
+import { Image } from 'astro:assets';
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+    <style>
+      .container {
+        display: flex;
+      }
+      .column {
+        flex: 1;
+        padding: 10px;
+      }
+
+      img {
+        margin-bottom: 5px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="column">
+        <h1>Built in Component</h1>
+        <Image src={sample} width={500} alt="Sample" />
+        <Image src={sample2} width={500} alt="Sample" />
+        <Image src={sample3} width={500} alt="Sample" />
+      </div>
+      <div class="column">
+        <h1>Cloudinary Image</h1>
+        <img
+          width="500"
+          src="https://res.cloudinary.com/tamas-demo/image/upload/w_500,f_webp,q_auto/img-component/sample.jpg"
+          alt="Sample Image"
+        />
+        <img
+          width="500"
+          src="https://res.cloudinary.com/tamas-demo/image/upload/w_500,f_webp,q_auto/img-component/sample2.jpg"
+          alt="Sample Image"
+        />
+        <img
+          width="500"
+          src="https://res.cloudinary.com/tamas-demo/image/upload/w_500,f_webp,q_auto/img-component/sample3.jpg"
+          alt="Sample Image"
+        />
+      </div>
+    </div>
+  </body>
 </html>
